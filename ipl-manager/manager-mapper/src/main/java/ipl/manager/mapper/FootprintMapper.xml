@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="ipl.manager.mapper.FootprintMapper" >
+  <resultMap id="BaseResultMap" type="ipl.manager.pojo.Footprint" >
+    <id column="user_id" property="userId" jdbcType="BIGINT" />
+    <id column="search_content" property="searchContent" jdbcType="VARCHAR" />
+    <result column="search_time" property="searchTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    user_id, search_content, search_time
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="ipl.manager.pojo.FootprintExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from footprint
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="ipl.manager.pojo.FootprintKey" >
+    select 
+    <include refid="Base_Column_List" />
+    from footprint
+    where user_id = #{userId,jdbcType=BIGINT}
+      and search_content = #{searchContent,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="ipl.manager.pojo.FootprintKey" >
+    delete from footprint
+    where user_id = #{userId,jdbcType=BIGINT}
+      and search_content = #{searchContent,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByUserId" parameterType="ipl.manager.pojo.FootprintKey" >
+    delete from footprint
+    where user_id = #{userId,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="ipl.manager.pojo.FootprintExample" >
+    delete from footprint
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="ipl.manager.pojo.Footprint" >
+    insert into footprint (user_id, search_content, search_time
+      )
+    values (#{userId,jdbcType=BIGINT}, #{searchContent,jdbcType=VARCHAR}, #{searchTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="ipl.manager.pojo.Footprint" >
+    insert into footprint
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="searchContent != null" >
+        search_content,
+      </if>
+      <if test="searchTime != null" >
+        search_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="userId != null" >
+        #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="searchContent != null" >
+        #{searchContent,jdbcType=VARCHAR},
+      </if>
+      <if test="searchTime != null" >
+        #{searchTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="ipl.manager.pojo.FootprintExample" resultType="java.lang.Integer" >
+    select count(*) from footprint
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update footprint
+    <set >
+      <if test="record.userId != null" >
+        user_id = #{record.userId,jdbcType=BIGINT},
+      </if>
+      <if test="record.searchContent != null" >
+        search_content = #{record.searchContent,jdbcType=VARCHAR},
+      </if>
+      <if test="record.searchTime != null" >
+        search_time = #{record.searchTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update footprint
+    set user_id = #{record.userId,jdbcType=BIGINT},
+      search_content = #{record.searchContent,jdbcType=VARCHAR},
+      search_time = #{record.searchTime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="ipl.manager.pojo.Footprint" >
+    update footprint
+    <set >
+      <if test="searchTime != null" >
+        search_time = #{searchTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where user_id = #{userId,jdbcType=BIGINT}
+      and search_content = #{searchContent,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="ipl.manager.pojo.Footprint" >
+    update footprint
+    set search_time = #{searchTime,jdbcType=TIMESTAMP}
+    where user_id = #{userId,jdbcType=BIGINT}
+      and search_content = #{searchContent,jdbcType=VARCHAR}
+  </update>
+  <select id="getAllFootprintByUserId" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    SELECT * FROM footprint WHERE user_id = #{userId,jdbcType=BIGINT} ORDER BY search_time DESC ;
+  </select>
+  <select id="getFootprintCount" resultType="java.lang.Integer" parameterType="java.lang.Long">
+    SELECT COUNT(*) FROM footprint WHERE user_id = #{userId,jdbcType=BIGINT}
+  </select>
+  <select id="getMinTime" resultType="java.util.Date" parameterType="java.lang.Long">
+     SELECT min(search_time) FROM footprint WHERE user_id = #{userId,jdbcType=BIGINT}
+  </select>
+  <delete id="delFootprintByuserIdAndTime" parameterType="ipl.manager.pojo.Footprint">
+    delete from footprint
+    where user_id = #{userId,jdbcType=BIGINT}
+      and search_time = #{searchTime,jdbcType=TIMESTAMP}
+  </delete>
+</mapper>

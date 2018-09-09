@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 引用多个Spring的Schema空间格式定义文件，不同空间下有不同的配置标签 -->
+<!-- Spring默认在启动时是要加载XSD文件来验证xml文件的 -->
+<!-- xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+声明XML Schema 实例，声明后就可以使用 schemaLocation 属性了  -->
+<!-- xsi:schemaLocation 这个从命名可以看出个大概，指定Schema的位置这个属性必须结合命名空间使用。这个属性有两个值，第一个值表示需要使用的命名空间。第二个值表示供命名空间使用的 XML schema 的位置 -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd
+	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.1.xsd">
+
+    <!-- Spring容器管理mapper、dao的配置文件，service层 -->
+    <!-- 加载配置文件 -->
+    <context:property-placeholder location="classpath:resource/jdbc.properties"/>
+    <!-- 数据库连接池。Druid数据源 -->
+    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource"
+          destroy-method="close">
+        <property name="url" value="${url}"/>
+        <property name="username" value="admin"/>
+        <property name="password" value="${password}"/>
+        <property name="driverClassName" value="${driver}"/>
+        <property name="maxActive" value="${maxActive}"/>
+        <property name="minIdle" value="${minIdle}"/>
+        <property name="maxWait" value="${maxWait}"/>
+        <property name="initialSize" value="${initialSize}"/>
+    </bean>
+    <!-- 配置sqlsessionFactory -->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="configLocation" value="classpath:mybatis/SqlMapConfig.xml"></property>
+        <property name="dataSource" ref="dataSource"></property>
+    </bean>
+    <!-- 配置扫描包，加载mapper代理对象 -->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <!-- 逆向工程生成的文件会在这个包下 -->
+        <property name="basePackage" value="ipl.manager.mapper"></property>
+    </bean>
+</beans>

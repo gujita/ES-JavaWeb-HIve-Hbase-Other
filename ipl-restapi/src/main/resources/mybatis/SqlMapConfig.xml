@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE configuration
+
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<!-- mybatis的全局配置文件可参考：http://blog.csdn.net/hoho_12/article/details/52625992 -->
+<configuration>
+    <!-- 配置分页插件 -->
+    <plugins>
+        <plugin interceptor="com.github.pagehelper.PageHelper">
+            <!-- 设置数据库类型 Oracle,Mysql,MariaDB,SQLite,Hsqldb,PostgreSQL六种数据库-->
+            <property name="dialect" value="mysql"/>
+        </plugin>
+    </plugins>
+    <!--配置映射器路径，指向mapper.xml-->
+    <mappers>
+        <!--<mapper resource="mybatis/UserMapper.xml"/>-->
+    </mappers>
+</configuration>

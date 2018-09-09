@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="ipl.manager.mapper.RoleSearchMapper" >
+  <resultMap id="BaseResultMap" type="ipl.manager.pojo.RoleSearchKey" >
+    <id column="role_id" property="roleId" jdbcType="SMALLINT" />
+    <id column="search_id" property="searchId" jdbcType="SMALLINT" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    role_id, search_id
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="ipl.manager.pojo.RoleSearchExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from role_search
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="ipl.manager.pojo.RoleSearchKey" >
+    delete from role_search
+    where role_id = #{roleId,jdbcType=SMALLINT}
+      and search_id = #{searchId,jdbcType=SMALLINT}
+  </delete>
+  <delete id="deleteByRoleId" parameterType="java.lang.Short">
+    delete from role_search
+    where role_id = #{roleId,jdbcType=SMALLINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="ipl.manager.pojo.RoleSearchExample" >
+    delete from role_search
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="ipl.manager.pojo.RoleSearchKey" >
+    insert into role_search (role_id, search_id)
+    values (#{roleId,jdbcType=SMALLINT}, #{searchId,jdbcType=SMALLINT})
+  </insert>
+  <insert id="insertSelective" parameterType="ipl.manager.pojo.RoleSearchKey" >
+    insert into role_search
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="roleId != null" >
+        role_id,
+      </if>
+      <if test="searchId != null" >
+        search_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="roleId != null" >
+        #{roleId,jdbcType=SMALLINT},
+      </if>
+      <if test="searchId != null" >
+        #{searchId,jdbcType=SMALLINT},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="ipl.manager.pojo.RoleSearchExample" resultType="java.lang.Integer" >
+    select count(*) from role_search
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update role_search
+    <set >
+      <if test="record.roleId != null" >
+        role_id = #{record.roleId,jdbcType=SMALLINT},
+      </if>
+      <if test="record.searchId != null" >
+        search_id = #{record.searchId,jdbcType=SMALLINT},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update role_search
+    set role_id = #{record.roleId,jdbcType=SMALLINT},
+      search_id = #{record.searchId,jdbcType=SMALLINT}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKey" parameterType="ipl.manager.pojo.RoleSearchKey">
+    update role_search
+    set role_id = #{roleId,jdbcType=SMALLINT},
+      search_id = #{searchId,jdbcType=SMALLINT}
+  </update>
+</mapper>

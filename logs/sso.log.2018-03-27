@@ -1,0 +1,60 @@
+2018-03-27 18:48:49,059 - Root WebApplicationContext: initialization started
+2018-03-27 18:48:50,327 - Refreshing Root WebApplicationContext: startup date [Tue Mar 27 18:48:50 CST 2018]; root of context hierarchy
+2018-03-27 18:48:51,491 - Loading XML bean definitions from file [D:\Tomcat8.5.12\apache-tomcat-8.5.12\webapps\ROOT\WEB-INF\classes\spring\applicationContext-dao.xml]
+2018-03-27 18:48:53,951 - Loading XML bean definitions from file [D:\Tomcat8.5.12\apache-tomcat-8.5.12\webapps\ROOT\WEB-INF\classes\spring\applicationContext-service.xml]
+2018-03-27 18:48:54,311 - Loading XML bean definitions from file [D:\Tomcat8.5.12\apache-tomcat-8.5.12\webapps\ROOT\WEB-INF\classes\spring\applicationContext-trans.xml]
+2018-03-27 18:49:02,880 - Root WebApplicationContext: initialization completed in 13821 ms
+2018-03-27 18:49:03,133 - FrameworkServlet 'ipl-sso': initialization started
+2018-03-27 18:49:03,133 - Refreshing WebApplicationContext for namespace 'ipl-sso-servlet': startup date [Tue Mar 27 18:49:03 CST 2018]; parent: Root WebApplicationContext
+2018-03-27 18:49:03,133 - Loading XML bean definitions from class path resource [springmvc/spring-mvc.xml]
+2018-03-27 18:49:06,699 - Mapped "{[/myinfo],methods=[GET],produces=[application/json;charset=UTF-8 || application/json]}" onto public java.lang.String ipl.sso.controller.MyInfoController.getMyInfo(javax.servlet.http.HttpServletRequest)
+2018-03-27 18:49:06,715 - Mapped "{[/register],methods=[POST],produces=[application/json;charset=UTF-8 || application/json]}" onto public java.lang.String ipl.sso.controller.UserLoginRegistController.createUser(ipl.manager.pojo.UserInfo)
+2018-03-27 18:49:06,723 - Mapped "{[/login],methods=[POST],produces=[application/json;charset=UTF-8 || application/json]}" onto public java.lang.String ipl.sso.controller.UserLoginRegistController.userLogin(java.lang.String,java.lang.String,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-03-27 18:49:06,727 - Mapped "{[/checkinfo],methods=[GET],produces=[application/json;charset=UTF-8 || application/json]}" onto public java.lang.String ipl.sso.controller.UserValidatController.checkData(java.lang.String,java.lang.Integer)
+2018-03-27 18:49:08,383 - Looking for @ControllerAdvice: WebApplicationContext for namespace 'ipl-sso-servlet': startup date [Tue Mar 27 18:49:03 CST 2018]; parent: Root WebApplicationContext
+2018-03-27 18:49:08,728 - Looking for @ControllerAdvice: WebApplicationContext for namespace 'ipl-sso-servlet': startup date [Tue Mar 27 18:49:03 CST 2018]; parent: Root WebApplicationContext
+2018-03-27 18:49:09,161 - FrameworkServlet 'ipl-sso': initialization completed in 6028 ms
+2018-03-27 18:50:00,732 - No mapping found for HTTP request with URI [/v1/] in DispatcherServlet with name 'ipl-sso'
+2018-03-27 18:51:57,358 - Request method 'POST' not supported
+2018-03-27 18:52:48,872 - Request method 'POST' not supported
+2018-03-27 18:53:03,814 - Request method 'POST' not supported
+2018-03-27 18:54:27,275 - Request method 'POST' not supported
+2018-03-27 18:54:36,360 - 验证用户名===== Sam1
+2018-03-27 18:54:37,111 - {dataSource-1} inited
+2018-03-27 18:54:38,404 - 该用户名Sam1已经存在
+2018-03-27 18:58:24,967 - 验证邮箱===== s
+2018-03-27 18:58:46,019 - Request method 'POST' not supported
+2018-03-27 18:59:47,975 - Request method 'POST' not supported
+2018-03-27 19:17:28,572 - 没有邮箱为：sss@qq.com的用户
+2018-03-27 19:18:50,071 - 用户，4第==={}次登录
+2018-03-27 19:18:59,258 - Request method 'POST' not supported
+2018-03-27 19:20:12,003 - {dataSource-2} inited
+2018-03-27 19:20:42,837 - Loading XML bean definitions from class path resource [org/springframework/jdbc/support/sql-error-codes.xml]
+2018-03-27 19:20:43,712 - SQLErrorCodes loaded: [DB2, Derby, H2, HSQL, Informix, MS-SQL, MySQL, Oracle, PostgreSQL, Sybase, Hana]
+2018-03-27 19:24:51,118 - Closing WebApplicationContext for namespace 'ipl-sso-servlet': startup date [Tue Mar 27 18:49:03 CST 2018]; parent: Root WebApplicationContext
+2018-03-27 19:24:51,774 - Closing Root WebApplicationContext: startup date [Tue Mar 27 18:48:50 CST 2018]; root of context hierarchy
+2018-03-27 19:24:51,943 - {dataSource-2} closed
+2018-03-27 19:24:52,005 - {dataSource-1} closed
+2018-03-27 19:26:40,663 - Root WebApplicationContext: initialization started
+2018-03-27 19:26:41,007 - Refreshing Root WebApplicationContext: startup date [Tue Mar 27 19:26:41 CST 2018]; root of context hierarchy
+2018-03-27 19:26:41,480 - Loading XML bean definitions from file [D:\Tomcat8.5.12\apache-tomcat-8.5.12\webapps\ROOT\WEB-INF\classes\spring\applicationContext-dao.xml]
+2018-03-27 19:26:42,585 - Loading XML bean definitions from file [D:\Tomcat8.5.12\apache-tomcat-8.5.12\webapps\ROOT\WEB-INF\classes\spring\applicationContext-service.xml]
+2018-03-27 19:26:43,206 - Loading XML bean definitions from file [D:\Tomcat8.5.12\apache-tomcat-8.5.12\webapps\ROOT\WEB-INF\classes\spring\applicationContext-trans.xml]
+2018-03-27 19:26:56,045 - Root WebApplicationContext: initialization completed in 15351 ms
+2018-03-27 19:26:56,153 - FrameworkServlet 'ipl-sso': initialization started
+2018-03-27 19:26:56,153 - Refreshing WebApplicationContext for namespace 'ipl-sso-servlet': startup date [Tue Mar 27 19:26:56 CST 2018]; parent: Root WebApplicationContext
+2018-03-27 19:26:56,153 - Loading XML bean definitions from class path resource [springmvc/spring-mvc.xml]
+2018-03-27 19:26:57,643 - Mapped "{[/myinfo],methods=[GET],produces=[application/json;charset=UTF-8 || application/json]}" onto public java.lang.String ipl.sso.controller.MyInfoController.getMyInfo(javax.servlet.http.HttpServletRequest)
+2018-03-27 19:26:57,643 - Mapped "{[/register],methods=[POST],produces=[application/json;charset=UTF-8 || application/json]}" onto public java.lang.String ipl.sso.controller.UserLoginRegistController.createUser(ipl.manager.pojo.UserInfo)
+2018-03-27 19:26:57,661 - Mapped "{[/login],methods=[POST],produces=[application/json;charset=UTF-8 || application/json]}" onto public java.lang.String ipl.sso.controller.UserLoginRegistController.userLogin(java.lang.String,java.lang.String,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-03-27 19:26:57,665 - Mapped "{[/checkinfo],methods=[GET],produces=[application/json;charset=UTF-8 || application/json]}" onto public java.lang.String ipl.sso.controller.UserValidatController.checkData(java.lang.String,java.lang.Integer)
+2018-03-27 19:26:58,932 - Looking for @ControllerAdvice: WebApplicationContext for namespace 'ipl-sso-servlet': startup date [Tue Mar 27 19:26:56 CST 2018]; parent: Root WebApplicationContext
+2018-03-27 19:26:59,218 - Looking for @ControllerAdvice: WebApplicationContext for namespace 'ipl-sso-servlet': startup date [Tue Mar 27 19:26:56 CST 2018]; parent: Root WebApplicationContext
+2018-03-27 19:26:59,641 - FrameworkServlet 'ipl-sso': initialization completed in 3488 ms
+2018-03-27 19:27:43,902 - {dataSource-1} inited
+2018-03-27 19:27:45,654 - 没有邮箱为：123abc@qq.com的用户
+2018-03-27 19:28:20,402 - Request method 'GET' not supported
+2018-03-27 19:28:53,375 - 用户，2第==={}次登录
+2018-03-27 19:37:17,718 - Closing WebApplicationContext for namespace 'ipl-sso-servlet': startup date [Tue Mar 27 19:26:56 CST 2018]; parent: Root WebApplicationContext
+2018-03-27 19:37:17,734 - Closing Root WebApplicationContext: startup date [Tue Mar 27 19:26:41 CST 2018]; root of context hierarchy
+2018-03-27 19:37:17,859 - {dataSource-1} closed

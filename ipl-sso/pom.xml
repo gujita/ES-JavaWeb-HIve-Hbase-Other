@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>ipl-parent</artifactId>
+        <groupId>lab.ipl</groupId>
+        <version>1.0-SNAPSHOT</version>
+        <relativePath>../ipl-parent/pom.xml</relativePath>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+    <packaging>war</packaging>
+
+    <artifactId>ipl-sso</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <dependencies>
+        <dependency>
+            <groupId>lab.ipl</groupId>
+            <artifactId>manager-mapper</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <!-- Spring -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-beans</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jdbc</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-aspects</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>javax.servlet.jsp</groupId>
+            <artifactId>javax.servlet.jsp-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.kafka</groupId>
+            <artifactId>kafka_2.12</artifactId>
+            <version>1.0.1</version>
+        </dependency>
+    </dependencies>
+
+    <!--    <build>
+            &lt;!&ndash; Jetty插件 &ndash;&gt;
+            <plugins>
+                <plugin>
+                    <groupId>org.mortbay.jetty</groupId>
+                    <artifactId>jetty</artifactId>
+                    <version>7.0.0.pre5</version>
+                    <configuration>
+                        <stopPort>9988</stopPort>
+                        <stopKey>stop</stopKey>
+                        &lt;!&ndash; 0表示不进行热部署 &ndash;&gt;
+                        <scanIntervalSeconds>0</scanIntervalSeconds>
+                        &lt;!&ndash; 默认值为 automatic，它与大于 0 的 scanIntervalSeconds 节点一起作用，实现自动热部署的工作 &ndash;&gt;
+                        <reload>manual</reload>
+                        <connectors>
+                            <connector implementation="org.mortbay.jetty.server.nio.SelectChannelConnector">
+                                <port>8081</port>
+                                <maxIdleTime>60000</maxIdleTime>
+                            </connector>
+                        </connectors>
+                        <webAppConfig>
+                            <contextPath>/</contextPath>
+                        </webAppConfig>
+                    </configuration>
+                </plugin>
+            </plugins>
+            <finalName>ipl-sso</finalName>
+        </build>-->
+
+</project>
